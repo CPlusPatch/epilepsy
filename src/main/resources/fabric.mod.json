@@ -22,9 +22,6 @@
       "com.cpluspatch.epilepsy.Epilepsy"
     ]
   },
-  "mixins": [
-    "epilepsy.mixins.json"
-  ],
 
   "depends": {
     "fabricloader": ">=0.14.9",

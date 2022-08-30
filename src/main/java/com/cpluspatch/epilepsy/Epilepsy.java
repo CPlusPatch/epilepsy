@@ -1,14 +1,12 @@
 package com.cpluspatch.epilepsy;
 
+import com.cpluspatch.epilepsy.blocks.ModBlocks;
+import com.cpluspatch.epilepsy.groups.ModItemGroups;
+import com.cpluspatch.epilepsy.items.ModItems;
+import com.cpluspatch.epilepsy.sounds.ModSounds;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import net.minecraft.util.registry.Registry;
 
 public class Epilepsy implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -18,12 +16,15 @@ public class Epilepsy implements ModInitializer {
 	public static final String MOD_ID = "epilepsy";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static final Item RAINBOW_INGOT = new Item(new FabricItemSettings().group(ItemGroup.MISC));
+
 
 	@Override
 	public void onInitialize() {
-		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "rainbow_ingot"), RAINBOW_INGOT);
+		ModItems.registerItems();
+		ModSounds.registerSounds();
+		ModBlocks.registerBlocks();
+		ModItemGroups.registerItemGroups();
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("welcome to the rice fields motherfucker");
 	}
 }

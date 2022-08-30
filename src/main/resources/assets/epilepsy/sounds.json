@@ -1,0 +1,14 @@
+{
+  "bababooey": {
+    "subtitle": "subtitles.epilepsy.bababooey",
+    "sounds": [
+      "epilepsy:bababooey"
+    ]
+  },
+  "industrial_society": {
+    "subtitle": "subtitles.epilepsy.industrial_society",
+    "sounds": [
+      "epilepsy:industrial_society"
+    ]
+  }
+}
