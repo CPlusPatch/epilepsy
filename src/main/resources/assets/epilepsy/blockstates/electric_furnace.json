@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": {"model":  "epilepsy:block/electric_furnace", "uvlock": true},
+    "facing=east": {"model":  "epilepsy:block/electric_furnace", "y":  90, "uvlock": true},
+    "facing=south": {"model":  "epilepsy:block/electric_furnace", "y":  180, "uvlock": true},
+    "facing=west": {"model":  "epilepsy:block/electric_furnace", "y":  270, "uvlock": true}
+  }
+}

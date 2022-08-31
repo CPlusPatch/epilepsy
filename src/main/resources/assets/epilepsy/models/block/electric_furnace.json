@@ -1,0 +1,11 @@
+{
+  "parent": "epilepsy:block/machine",
+  "textures": {
+    "bottom": "epilepsy:block/machine",
+    "top": "epilepsy:block/machine",
+    "right": "epilepsy:block/machine_side",
+    "left": "epilepsy:block/machine_side",
+    "front": "epilepsy:block/electric_furnace",
+    "back": "epilepsy:block/machine"
+  }
+}
