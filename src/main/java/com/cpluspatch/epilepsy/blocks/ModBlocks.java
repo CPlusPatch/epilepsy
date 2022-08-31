@@ -19,16 +19,16 @@ public class ModBlocks {
     public static final BlockEntityType<ElectricFurnaceBlockEntity> ELECTRIC_FURNACE_BLOCK_ENTITY = Registry.register(
             Registry.BLOCK_ENTITY_TYPE,
             new Identifier(Epilepsy.MOD_ID, "electric_furnace_block_entity"), FabricBlockEntityTypeBuilder.create(ElectricFurnaceBlockEntity::new, ELECTRIC_FURNACE)
-                    .build()
+                    .build(null)
         );
 
-    private static void registerBlock(Block block, Identifier id) {
-        Registry.register(Registry.BLOCK, id, block);
-        Registry.register(Registry.ITEM, id, new BlockItem(block, new FabricItemSettings()));
+    private static void registerBlock(Block block, String name) {
+        Registry.register(Registry.BLOCK, new Identifier(Epilepsy.MOD_ID, name), block);
+        Registry.register(Registry.ITEM, new Identifier(Epilepsy.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
     }
 
     public static void registerBlocks() {
-        registerBlock(MALICIOUS_BLOCK, new Identifier(Epilepsy.MOD_ID, "malicious_block"));
-        registerBlock(ELECTRIC_FURNACE, new Identifier(Epilepsy.MOD_ID, "electric_furnace"));
+        registerBlock(MALICIOUS_BLOCK, "malicious_block");
+        registerBlock(ELECTRIC_FURNACE, "electric_furnace");
     }
 }

@@ -3,6 +3,7 @@ package com.cpluspatch.epilepsy;
 import com.cpluspatch.epilepsy.blocks.ModBlocks;
 import com.cpluspatch.epilepsy.groups.ModItemGroups;
 import com.cpluspatch.epilepsy.items.ModItems;
+import com.cpluspatch.epilepsy.screens.ModScreenHandlers;
 import com.cpluspatch.epilepsy.sounds.ModSounds;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -24,6 +25,7 @@ public class Epilepsy implements ModInitializer {
 		ModSounds.registerSounds();
 		ModBlocks.registerBlocks();
 		ModItemGroups.registerItemGroups();
+		ModScreenHandlers.registerScreenHandlers();
 
 		LOGGER.info("welcome to the rice fields motherfucker");
 	}
