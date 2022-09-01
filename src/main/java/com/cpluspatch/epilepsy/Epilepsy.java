@@ -1,5 +1,6 @@
 package com.cpluspatch.epilepsy;
 
+import com.cpluspatch.epilepsy.blockentity.ModBlockEntities;
 import com.cpluspatch.epilepsy.blocks.ModBlocks;
 import com.cpluspatch.epilepsy.groups.ModItemGroups;
 import com.cpluspatch.epilepsy.items.ModItems;
@@ -24,6 +25,7 @@ public class Epilepsy implements ModInitializer {
 		ModItems.registerItems();
 		ModSounds.registerSounds();
 		ModBlocks.registerBlocks();
+		ModBlockEntities.registerBlockEntities();
 		ModItemGroups.registerItemGroups();
 		ModScreenHandlers.registerScreenHandlers();
 

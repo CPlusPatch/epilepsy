@@ -6,28 +6,59 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.screen.ArrayPropertyDelegate;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
 public class ElectricFurnaceScreenHandler extends ScreenHandler {
     private final Inventory inventory;
+    private final PropertyDelegate propertyDelegate;
 
     public ElectricFurnaceScreenHandler(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
-        this(syncId, playerInventory, new SimpleInventory(2));
+        this(syncId, playerInventory, new SimpleInventory(3), new ArrayPropertyDelegate(4));
     }
 
-    public ElectricFurnaceScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
+    public ElectricFurnaceScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
         super(ModScreenHandlers.ELECTRIC_FURNACE_SCREEN_HANDLER, syncId);
-        checkSize(inventory, 2);
+        checkSize(inventory, 3);
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);
+        this.propertyDelegate = delegate;
 
         // Our Slots
-        this.addSlot(new Slot(inventory, 0, 56, 25));
-        this.addSlot(new Slot(inventory, 2, 109, 25));
+        this.addSlot(new Slot(inventory, 0, 56, 25)); // Input slot
+        this.addSlot(new Slot(inventory, 1, 109, 25)); // Output slot
+        this.addSlot(new Slot(inventory, 2, 8, 49)); // Battery slot
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
+
+        addProperties(delegate);
+    }
+
+    public boolean isCrafting() {
+        return propertyDelegate.get(0) > 0;
+    }
+
+    public boolean hasCharge() {
+        return propertyDelegate.get(2) > 0;
+    }
+
+    public int getScaledCharge() {
+        int charge = this.propertyDelegate.get(2);
+        int maxCharge = this.propertyDelegate.get(3);
+        int chargeProgressBarSize = 54;
+
+        return maxCharge != 0 && charge != 0 ? charge * chargeProgressBarSize / maxCharge : 0;
+    }
+
+    public int getScaledProgress() {
+        int progress = this.propertyDelegate.get(0);
+        int maxProgress = this.propertyDelegate.get(1);
+        int progressArrowSize = 22; // Width of arrow
+
+        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
     @Override
@@ -71,6 +102,6 @@ public class ElectricFurnaceScreenHandler extends ScreenHandler {
 
     @Override
     public boolean canUse(PlayerEntity player) {
-        return false;
+        return true;
     }
 }

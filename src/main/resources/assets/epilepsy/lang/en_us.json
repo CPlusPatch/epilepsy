@@ -1,0 +1,7 @@
+{
+  "block.epilepsy.electric_furnace": "Electric Furnace",
+  "item.epilepsy.malicious_ore": "Malicious Ore",
+  "item.epilepsy.malicious_ore.tooltip": "Something malicious is brewing...",
+
+  "ui.epilepsy.electric_furnace.title": "Electric Furnace"
+}
